@@ -5,6 +5,7 @@
 #include <stack>
 #include <string>
 #include <map>
+#include <vector>
 #include <stdlib.h>
 
 class STACK_MACHINE {
@@ -14,9 +15,12 @@ class STACK_MACHINE {
 		int progCtr;
 		std::stack <std::string> memory;
 		std::map <int,std::string> heap;
+		std::vector <std::string> program;
 	public:
 		STACK_MACHINE();
 		~STACK_MACHINE();
+		void loadVector(std::vector <std::string> code){ this -> program = code; }
+		void exec();
 		void push(std::string);
 		std::string pop();
 		void add();
@@ -36,6 +40,18 @@ STACK_MACHINE::~STACK_MACHINE()
 
 }
 
+void STACK_MACHINE::exec()
+{
+	for(this -> progCtr; this -> progCtr < this -> program.size(); this -> progCtr++)
+	{
+
+		std::cout << "Current Instruction: " << this -> program[this -> progCtr] << std::endl;
+		std::string opcode = this -> program[this -> progCtr].substr(0,4);
+		std::cout << "\tFound Opcode: " << opcode << std::endl;
+
+	}
+
+}
 void STACK_MACHINE::push(std::string thing)
 {
 	this -> memory.push(thing);

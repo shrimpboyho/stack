@@ -30,7 +30,6 @@ The first 4 bits represent the operation code:
 0101 div
 0110 flag
 0111 jump
-1000 print
 
 ```
 

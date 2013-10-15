@@ -7,10 +7,11 @@ int main (int agrc, char* argv[])
 {
 
         STACK_MACHINE stacky;
-        stacky.push("5");
-	stacky.push("6");
-	stacky.mul();
-        std::string returnstuff = stacky.pop();
-	std::cout << returnstuff;	
+
+	std::vector <std::string> code;
+	code.push_back("00010101001010");	
+
+	stacky.loadVector(code);
+	stacky.exec();
 	return 0;
 }
