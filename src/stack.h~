@@ -12,7 +12,7 @@ class STACK_MACHINE {
 	private:
 		int memPtr = 0;
 		std::stack <std::string> memory;
-		std::map <std::string> heap;
+		std::map <int,std::string> heap;
 	public:
 		STACK_MACHINE();
 		~STACK_MACHINE();
