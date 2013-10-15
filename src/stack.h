@@ -4,13 +4,15 @@
 #include <iostream>
 #include <stack>
 #include <string>
+#include <map>
 #include <stdlib.h>
 
 class STACK_MACHINE {
 
 	private:
-		int stackPtr;
+		int memPtr = 0;
 		std::stack <std::string> memory;
+		std::map <int,std::string> heap;
 	public:
 		STACK_MACHINE();
 		~STACK_MACHINE();
