@@ -10,7 +10,7 @@
 class STACK_MACHINE {
 
 	private:
-		int memPtr = 0;
+		int memPtr;
 		std::stack <std::string> memory;
 		std::map <int,std::string> heap;
 	public:
@@ -26,7 +26,7 @@ class STACK_MACHINE {
 
 STACK_MACHINE::STACK_MACHINE()
 {
-
+	this -> memPtr = 0;
 }
 
 STACK_MACHINE::~STACK_MACHINE()

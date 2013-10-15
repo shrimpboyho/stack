@@ -11,6 +11,7 @@ class STACK_MACHINE {
 
 	private:
 		int memPtr;
+		int progCtr;
 		std::stack <std::string> memory;
 		std::map <int,std::string> heap;
 	public:
@@ -27,6 +28,7 @@ class STACK_MACHINE {
 STACK_MACHINE::STACK_MACHINE()
 {
 	this -> memPtr = 0;
+	this -> progCtr = 0;
 }
 
 STACK_MACHINE::~STACK_MACHINE()
