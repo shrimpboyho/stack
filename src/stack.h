@@ -6,6 +6,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <sstream>
 #include <stdlib.h>
 
 class STACK_MACHINE {
@@ -16,6 +17,7 @@ class STACK_MACHINE {
 		std::stack <std::string> memory;
 		std::map <int,std::string> heap;
 		std::vector <std::string> program;
+		std::string to_string(int);
 	public:
 		STACK_MACHINE();
 		~STACK_MACHINE();
@@ -70,7 +72,7 @@ void STACK_MACHINE::add()
 {
 	std::string firstitem = this -> pop();
 	std::string seconditem = this -> pop();
-	std::string answer = std::to_string( atoi(firstitem.c_str()) + atoi(seconditem.c_str()) );
+	std::string answer = this -> to_string( atoi(firstitem.c_str()) + atoi(seconditem.c_str()) );
 	this -> push(answer);
 }
 
@@ -78,7 +80,7 @@ void STACK_MACHINE::sub()
 {
 	std::string firstitem = this -> pop();
 	std::string seconditem = this -> pop();
-	std::string answer = std::to_string( atoi(firstitem.c_str()) - atoi(seconditem.c_str()) );
+	std::string answer = this -> to_string( atoi(firstitem.c_str()) - atoi(seconditem.c_str()) );
 	this -> push(answer);
 }
 
@@ -86,7 +88,7 @@ void STACK_MACHINE::mul()
 {
 	std::string firstitem = this -> pop();
 	std::string seconditem = this -> pop();
-	std::string answer = std::to_string( atoi(firstitem.c_str()) * atoi(seconditem.c_str()) );
+	std::string answer = this -> to_string( atoi(firstitem.c_str()) * atoi(seconditem.c_str()) );
 	this -> push(answer);
 }
 
@@ -94,8 +96,15 @@ void STACK_MACHINE::div()
 {
 	std::string firstitem = this -> pop();
 	std::string seconditem = this -> pop();
-	std::string answer = std::to_string( atoi(firstitem.c_str()) / atoi(seconditem.c_str()) );
+	std::string answer = this -> to_string( atoi(firstitem.c_str()) / atoi(seconditem.c_str()) );
 	this -> push(answer);
+}
+
+std::string STACK_MACHINE::to_string(int number)
+{
+    std::stringstream ss;
+    ss << number;
+    return ss.str();
 }
 #endif /* STACK_H */
 
