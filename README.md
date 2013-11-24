@@ -21,7 +21,6 @@ make
 The first 4 bits represent the operation code:
 
 ```c
-
 0000 halt
 0001 load
 0010 add
@@ -31,7 +30,6 @@ The first 4 bits represent the operation code:
 0110 flag
 0111 jump
 1000 print
-
 ```
 
 
